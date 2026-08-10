@@ -30,6 +30,7 @@ export const ui = {
 		footerCopy: 'Neuigkeiten aus dem offenen OSIRIS-Ökosystem.',
 		languageSwitch: 'Sprache auswählen',
 		readArticle: 'lesen',
+		imprint: 'Impressum',
 	},
 	en: {
 		skipToContent: 'Skip to content',
@@ -60,6 +61,7 @@ export const ui = {
 		footerCopy: 'News from the open OSIRIS ecosystem.',
 		languageSwitch: 'Choose language',
 		readArticle: 'read',
+		imprint: 'Imprint',
 	},
 } as const;
 
@@ -82,4 +84,8 @@ export function tagsPath(language: Language, tagSlug: string) {
 
 export function rssPath(language: Language) {
 	return language === 'de' ? '/rss.xml' : '/en/rss.xml';
+}
+
+export function imprintPath(language: Language) {
+	return language === 'de' ? '/impressum/' : '/en/imprint/';
 }

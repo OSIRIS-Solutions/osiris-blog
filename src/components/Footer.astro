@@ -1,6 +1,6 @@
 ---
 import { GITHUB_URL } from '../consts';
-import { getUi, type Language } from '../i18n/ui';
+import { getUi, imprintPath, rssPath, type Language } from '../i18n/ui';
 
 interface Props { language?: Language }
 const { language = 'de' } = Astro.props;
@@ -19,7 +19,8 @@ const year = new Date().getFullYear();
 		<a href="https://osiris-portfolio.de">Portfolio</a>
 		<a href="https://wiki.osiris-app.de">Wiki</a>
 		<a href={GITHUB_URL}>GitHub</a>
-		<a href="/rss.xml">RSS</a>
+		<!-- <a href={rssPath(language)}>RSS</a> -->
+		<a href={imprintPath(language)}>{t.imprint}</a>
 	</nav>
 	<p class="copyright">© {year} OSIRIS Solutions GmbH</p>
 </footer>
