@@ -19,6 +19,7 @@ export const authors: Author[] = [
 		roleEn: 'Founder & Lead Developer',
 		bioEn: 'Develops OSIRIS and writes about open research information, product design, and the ideas behind the system.',
 		github: 'https://github.com/jkoblitz',
+		avatar: '/img/julia.jpeg',
 	},
 	{
 		id: 'martinique',
@@ -27,6 +28,8 @@ export const authors: Author[] = [
 		bio: 'Begleitet die OSIRIS-Community und berichtet über Meetings, Veranstaltungen und gemeinsame Entwicklungen.',
 		roleEn: 'Community Manager',
 		bioEn: 'Supports the OSIRIS community and reports on meetings, events, and collaborative developments.',
+		github: 'https://github.com/Martinique-F',
+		avatar: '/img/martinique.jpeg',
 	},
 ];
 

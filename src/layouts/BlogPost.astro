@@ -240,6 +240,11 @@ const alternateUrls = language === 'de'
 		background: var(--orange-soft);
 		color: var(--teal-950);
 		font-size: 1.1rem;
+		font-weight: 500;
+	}
+	/* last p in blockquote no bottom margin */
+	.prose :global(blockquote p:last-child) {
+		margin-bottom: 0;
 	}
 
 	.prose :global(code) {
