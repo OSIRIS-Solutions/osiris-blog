@@ -14,6 +14,13 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			language: z.enum(['de', 'en']).default('de'),
+			category: z.string().optional(),
+			categories: z.array(z.string()).optional(),
+			authors: z.array(z.string()).default(['jkoblitz']),
+			tags: z.array(z.string()).default([]),
+			links: z.array(z.record(z.string(), z.string())).optional(),
+			draft: z.boolean().default(false),
 		}),
 });
 

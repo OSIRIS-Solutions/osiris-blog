@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import PostCard from '../../components/PostCard.astro';
+import { tagToSlug } from '../../utils/tags';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog', ({ data }) => !data.draft);
+	const tags = new Map<string, string>();
+	for (const tag of posts.flatMap((post) => post.data.tags)) {
+		tags.set(tagToSlug(tag), tag);
+	}
+	return [...tags].map(([slug, label]) => ({ params: { tag: slug }, props: { label } }));
+}
+
+interface Props { label: string }
+const { label } = Astro.props;
+const posts = (await getCollection('blog', ({ data }) =>
+	!data.draft && data.tags.some((tag) => tagToSlug(tag) === tagToSlug(label)),
+)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title={`#${label} · OSIRIS Blog`} description={`Beiträge zum Thema ${label} im OSIRIS Blog.`} />
+	</head>
+	<body>
+		<Header />
+		<main id="content">
+			<header class="tag-head">
+				<a href="/">← Alle Beiträge</a>
+				<h1>#{label.replace(/\s+/g, '')}</h1>
+				<p>{posts.length} {posts.length === 1 ? 'Beitrag' : 'Beiträge'}</p>
+			</header>
+			<section class="posts" aria-label={`Beiträge mit dem Tag ${label}`}>
+				{posts.map((post) => <PostCard post={post} />)}
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.tag-head { padding: clamp(4rem, 9vw, 8rem) 0 4rem; }
+	.tag-head a { font-size: 0.88rem; font-weight: 800; text-decoration: none; }
+	h1 { margin: 1.2rem 0 0.4rem; font-size: clamp(3.5rem, 9vw, 8rem); letter-spacing: -0.06em; }
+	.tag-head p { margin: 0; color: var(--muted); }
+	.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+	@media (max-width: 1000px) { .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 650px) { .posts { grid-template-columns: 1fr; } }
+</style>

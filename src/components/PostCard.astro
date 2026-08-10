@@ -1,0 +1,239 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { getAuthor } from '../data/authors';
+import AuthorAvatar from './AuthorAvatar.astro';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+	featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const postAuthors = post.data.authors.map(getAuthor);
+const isRelease = post.data.tags.some((tag) => tag.toLowerCase() === 'release');
+---
+
+<article class:list={['post-card', { featured, 'has-image': post.data.heroImage, release: isRelease }]}> 
+	<a class="card-link" href={`/blog/${post.id}/`} aria-label={`${post.data.title} lesen`}>
+		{post.data.heroImage && (
+			<div class="card-image">
+				<Image src={post.data.heroImage} alt="" widths={[480, 760, 1080]} sizes={featured ? '(min-width: 900px) 66vw, 100vw' : '(min-width: 900px) 33vw, 100vw'} loading="lazy" />
+			</div>
+		)}
+
+		<div class="card-content">
+			<div class="card-topline">
+				<span><FormattedDate date={post.data.pubDate} language={post.data.language} /></span>
+				{post.data.language === 'en' && <span class="language">EN</span>}
+			</div>
+
+			<div class="card-copy">
+				<h2>{post.data.title}</h2>
+				<p>{post.data.description}</p>
+			</div>
+
+			<div class="tags" aria-label="Tags">
+				{post.data.tags.slice(0, 3).map((tag) => <span>#{tag.replace(/\s+/g, '')}</span>)}
+			</div>
+
+			<footer class="card-footer">
+				<div class="author-stack" aria-hidden="true">
+					{postAuthors.map((author) => <AuthorAvatar author={author} />)}
+				</div>
+				<span class="author-names">{postAuthors.map((author) => author.name).join(' & ')}</span>
+				<span class="read-more" aria-hidden="true">Weiterlesen <span>→</span></span>
+			</footer>
+		</div>
+	</a>
+</article>
+
+<style>
+	.post-card {
+		min-width: 0;
+		min-height: 27rem;
+		border: 1.5px solid var(--line);
+		border-radius: var(--radius-card);
+		background: var(--surface);
+		overflow: hidden;
+		transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-4px);
+		border-color: var(--teal-700);
+		box-shadow: var(--shadow-hover);
+	}
+
+	.post-card:focus-within {
+		outline: 3px solid var(--focus);
+		outline-offset: 3px;
+	}
+
+	.card-link {
+		display: flex;
+		height: 100%;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.card-content {
+		display: flex;
+		flex: 1;
+		min-width: 0;
+		flex-direction: column;
+		padding: clamp(1.4rem, 3vw, 2rem);
+	}
+
+	.card-image {
+		min-height: 17rem;
+		background: var(--teal-soft);
+	}
+
+	.card-image :global(img) {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 0;
+		object-fit: cover;
+	}
+
+	.post-card:not(.featured).has-image .card-link {
+		flex-direction: column;
+	}
+
+	.post-card:not(.featured).has-image .card-image {
+		height: 13rem;
+		min-height: 13rem;
+	}
+
+	.card-topline {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 2rem;
+		color: var(--muted);
+		font-size: 0.77rem;
+		font-weight: 700;
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
+	}
+
+	.language {
+		padding: 0.25rem 0.55rem;
+		border-radius: 99px;
+		background: var(--teal-soft);
+		color: var(--teal-900);
+	}
+
+	.card-copy {
+		flex: 1;
+	}
+
+	h2 {
+		margin: 0 0 0.85rem;
+		color: var(--teal-950);
+		font-size: clamp(1.45rem, 3vw, 2.15rem);
+		letter-spacing: -0.035em;
+	}
+
+	p {
+		display: -webkit-box;
+		margin: 0;
+		overflow: hidden;
+		color: var(--text-soft);
+		font-size: 1rem;
+		line-height: 1.55;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.7rem;
+		margin: 1.5rem 0;
+		color: var(--teal-700);
+		font-size: 0.79rem;
+		font-weight: 700;
+	}
+
+	.card-footer {
+		display: flex;
+		align-items: center;
+		min-height: 2.4rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--line-soft);
+	}
+
+	.author-stack {
+		display: flex;
+		margin-right: 0.6rem;
+	}
+
+	.author-stack :global(.author-avatar + .author-avatar) {
+		margin-left: -0.65rem;
+	}
+
+	.author-names {
+		overflow: hidden;
+		font-size: 0.82rem;
+		font-weight: 700;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.read-more {
+		margin-left: auto;
+		padding-left: 1rem;
+		color: var(--teal-700);
+		font-size: 0.82rem;
+		font-weight: 800;
+		white-space: nowrap;
+	}
+
+	.read-more span {
+		display: inline-block;
+		transition: transform 180ms ease;
+	}
+
+	.post-card:hover .read-more span {
+		transform: translateX(0.25rem);
+	}
+
+	@media (min-width: 900px) {
+		.featured {
+			grid-column: span 2;
+		}
+
+		.featured .card-image {
+			width: 48%;
+		}
+
+		.featured h2 {
+			font-size: clamp(2rem, 3vw, 3.15rem);
+		}
+	}
+
+	@media (max-width: 899px) {
+		.card-link,
+		.featured .card-link {
+			flex-direction: column;
+		}
+
+		.card-image,
+		.featured .card-image {
+			width: 100%;
+			height: 15rem;
+			min-height: 15rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.post-card,
+		.read-more span {
+			transition: none;
+		}
+	}
+</style>

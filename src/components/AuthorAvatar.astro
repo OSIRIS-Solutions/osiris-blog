@@ -1,0 +1,46 @@
+---
+import type { Author } from '../data/authors';
+import { getInitials } from '../data/authors';
+
+interface Props {
+	author: Author;
+	size?: 'small' | 'large';
+}
+
+const { author, size = 'small' } = Astro.props;
+---
+
+<span class:list={['author-avatar', size]} aria-hidden="true">
+	{author.avatar ? <img src={author.avatar} alt="" loading="lazy" /> : getInitials(author.name)}
+</span>
+
+<style>
+	.author-avatar {
+		display: inline-grid;
+		flex: 0 0 auto;
+		width: 2.25rem;
+		height: 2.25rem;
+		place-items: center;
+		overflow: hidden;
+		border: 2px solid var(--surface);
+		border-radius: 50%;
+		background: linear-gradient(145deg, var(--teal-soft), #fff);
+		color: var(--teal-900);
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+	}
+
+	.author-avatar.large {
+		width: 6.5rem;
+		height: 6.5rem;
+		font-size: 1.5rem;
+	}
+
+	.author-avatar img {
+		width: 100%;
+		height: 100%;
+		border-radius: inherit;
+		object-fit: cover;
+	}
+</style>
