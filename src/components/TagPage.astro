@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import PostCard from './PostCard.astro';
+import { getUi, homePath, tagsPath, type Language } from '../i18n/ui';
+import { tagToSlug } from '../utils/tags';
+
+interface Props { language: Language; label: string }
+const { language, label } = Astro.props;
+const t = getUi(language);
+const slug = tagToSlug(label);
+const posts = (await getCollection('blog', ({ data }) =>
+	!data.draft && data.language === language && data.tags.some((tag) => tagToSlug(tag) === slug),
+)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const otherLanguage: Language = language === 'de' ? 'en' : 'de';
+const otherPosts = await getCollection('blog', ({ data }) =>
+	!data.draft && data.language === otherLanguage && data.tags.some((tag) => tagToSlug(tag) === slug),
+);
+const alternateUrl = otherPosts.length ? tagsPath(otherLanguage, slug) : homePath(otherLanguage);
+const alternateUrls: Partial<Record<Language, string>> = otherPosts.length
+	? { de: tagsPath('de', slug), en: tagsPath('en', slug) }
+	: { [language]: tagsPath(language, slug) };
+---
+
+<!doctype html>
+<html lang={language}>
+	<head>
+		<BaseHead
+			title={`#${label} · OSIRIS Blog`}
+			description={t.tagDescription.replace('{tag}', label)}
+			language={language}
+			alternateUrls={alternateUrls}
+		/>
+	</head>
+	<body>
+		<Header language={language} alternateUrl={alternateUrl} />
+		<main id="content">
+			<header class="tag-head">
+				<a href={homePath(language)}>← {t.allPosts}</a>
+				<h1>#{label.replace(/\s+/g, '')}</h1>
+				<p>{posts.length} {posts.length === 1 ? t.post : t.postsPlural}</p>
+			</header>
+			<section class="posts" aria-label={`${t.postsWithTag} ${label}`}>
+				{posts.map((post) => <PostCard post={post} />)}
+			</section>
+		</main>
+		<Footer language={language} />
+	</body>
+</html>
+
+<style>
+	.tag-head { padding: clamp(4rem, 9vw, 8rem) 0 4rem; }
+	.tag-head a { font-size: 0.88rem; font-weight: 800; text-decoration: none; }
+	h1 { margin: 1.2rem 0 0.4rem; font-size: clamp(3.5rem, 9vw, 8rem); letter-spacing: -0.06em; }
+	.tag-head p { margin: 0; color: var(--muted); }
+	.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+	@media (max-width: 1000px) { .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 650px) { .posts { grid-template-columns: 1fr; } }
+</style>

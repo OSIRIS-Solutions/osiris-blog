@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getAuthor } from '../data/authors';
 import AuthorAvatar from './AuthorAvatar.astro';
 import FormattedDate from './FormattedDate.astro';
+import { getUi } from '../i18n/ui';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -13,10 +14,11 @@ interface Props {
 const { post, featured = false } = Astro.props;
 const postAuthors = post.data.authors.map(getAuthor);
 const isRelease = post.data.tags.some((tag) => tag.toLowerCase() === 'release');
+const t = getUi(post.data.language);
 ---
 
 <article class:list={['post-card', { featured, 'has-image': post.data.heroImage, release: isRelease }]}> 
-	<a class="card-link" href={`/blog/${post.id}/`} aria-label={`${post.data.title} lesen`}>
+	<a class="card-link" href={`/blog/${post.id}/`} aria-label={`${post.data.title} ${t.readArticle}`}>
 		{post.data.heroImage && (
 			<div class="card-image">
 				<Image src={post.data.heroImage} alt="" widths={[480, 760, 1080]} sizes={featured ? '(min-width: 900px) 66vw, 100vw' : '(min-width: 900px) 33vw, 100vw'} loading="lazy" />
@@ -43,7 +45,7 @@ const isRelease = post.data.tags.some((tag) => tag.toLowerCase() === 'release');
 					{postAuthors.map((author) => <AuthorAvatar author={author} />)}
 				</div>
 				<span class="author-names">{postAuthors.map((author) => author.name).join(' & ')}</span>
-				<span class="read-more" aria-hidden="true">Weiterlesen <span>→</span></span>
+				<span class="read-more" aria-hidden="true">{t.readMore} <span>→</span></span>
 			</footer>
 		</div>
 	</a>

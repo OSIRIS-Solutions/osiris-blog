@@ -3,6 +3,8 @@ export interface Author {
 	name: string;
 	role: string;
 	bio: string;
+	roleEn?: string;
+	bioEn?: string;
 	github?: string;
 	website?: string;
 	avatar?: string;
@@ -14,6 +16,8 @@ export const authors: Author[] = [
 		name: 'Julia Koblitz',
 		role: 'Gründerin & Lead Developerin',
 		bio: 'Entwickelt OSIRIS und schreibt über offene Forschungsinformation, Produktdesign und die Ideen hinter dem System.',
+		roleEn: 'Founder & Lead Developer',
+		bioEn: 'Develops OSIRIS and writes about open research information, product design, and the ideas behind the system.',
 		github: 'https://github.com/jkoblitz',
 	},
 	{
@@ -21,6 +25,8 @@ export const authors: Author[] = [
 		name: 'Martinique Frentrup',
 		role: 'Community Managerin',
 		bio: 'Begleitet die OSIRIS-Community und berichtet über Meetings, Veranstaltungen und gemeinsame Entwicklungen.',
+		roleEn: 'Community Manager',
+		bioEn: 'Supports the OSIRIS community and reports on meetings, events, and collaborative developments.',
 	},
 ];
 
@@ -33,6 +39,15 @@ export function getAuthor(id: string): Author {
 			bio: 'Schreibt im OSIRIS Blog.',
 		}
 	);
+}
+
+export function localizeAuthor(author: Author, language: 'de' | 'en'): Author {
+	if (language === 'de') return author;
+	return {
+		...author,
+		role: author.roleEn ?? author.role,
+		bio: author.bioEn ?? author.bio,
+	};
 }
 
 export function getInitials(name: string): string {

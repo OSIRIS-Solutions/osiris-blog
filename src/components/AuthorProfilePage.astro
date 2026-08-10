@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import AuthorAvatar from './AuthorAvatar.astro';
+import PostCard from './PostCard.astro';
+import { localizeAuthor, type Author } from '../data/authors';
+import { authorsPath, getUi, type Language } from '../i18n/ui';
+
+interface Props { language: Language; author: Author }
+const { language, author: rawAuthor } = Astro.props;
+const author = localizeAuthor(rawAuthor, language);
+const t = getUi(language);
+const posts = (await getCollection('blog', ({ data }) =>
+	!data.draft && data.language === language && data.authors.includes(author.id),
+)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const alternateUrl = authorsPath(language === 'de' ? 'en' : 'de', author.id);
+---
+
+<!doctype html>
+<html lang={language}>
+	<head>
+		<BaseHead
+			title={`${author.name} · OSIRIS Blog`}
+			description={author.bio}
+			language={language}
+			alternateUrls={{ de: authorsPath('de', author.id), en: authorsPath('en', author.id) }}
+		/>
+	</head>
+	<body>
+		<Header language={language} alternateUrl={alternateUrl} />
+		<main id="content">
+			<header class="author-hero">
+				<AuthorAvatar author={author} size="large" />
+				<div>
+					<p class="role">{author.role}</p>
+					<h1>{author.name}</h1>
+					<p class="bio">{author.bio}</p>
+					{author.github && <a href={author.github} rel="me">GitHub <span aria-hidden="true">↗</span></a>}
+				</div>
+			</header>
+			<section class="posts" aria-label={`${t.postsBy} ${author.name}`}>
+				{posts.map((post) => <PostCard post={post} />)}
+			</section>
+		</main>
+		<Footer language={language} />
+	</body>
+</html>
+
+<style>
+	.author-hero { display: grid; max-width: 62rem; grid-template-columns: auto 1fr; align-items: start; padding: clamp(4rem, 9vw, 8rem) 0 4rem; gap: 2rem; }
+	.role { margin: 0 0 0.7rem; color: var(--teal-700); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
+	h1 { margin: 0; font-size: clamp(3rem, 7vw, 6.5rem); letter-spacing: -0.055em; }
+	.bio { max-width: 47rem; margin: 1.5rem 0; color: var(--text-soft); font-size: 1.2rem; }
+	.author-hero a { font-weight: 800; }
+	.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+	@media (max-width: 1000px) { .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 650px) { .author-hero { grid-template-columns: 1fr; } .posts { grid-template-columns: 1fr; } }
+</style>

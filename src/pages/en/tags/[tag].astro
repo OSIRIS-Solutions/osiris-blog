@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import TagPage from '../../components/TagPage.astro';
-import { tagToSlug } from '../../utils/tags';
+import TagPage from '../../../components/TagPage.astro';
+import { tagToSlug } from '../../../utils/tags';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog', ({ data }) => !data.draft && data.language === 'de');
+	const posts = await getCollection('blog', ({ data }) => !data.draft && data.language === 'en');
 	const tags = new Map<string, string>();
 	for (const tag of posts.flatMap((post) => post.data.tags)) tags.set(tagToSlug(tag), tag);
 	return [...tags].map(([slug, label]) => ({ params: { tag: slug }, props: { label } }));
@@ -14,4 +14,4 @@ interface Props { label: string }
 const { label } = Astro.props;
 ---
 
-<TagPage language="de" label={label} />
+<TagPage language="en" label={label} />

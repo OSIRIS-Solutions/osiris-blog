@@ -6,30 +6,35 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import AuthorAvatar from '../components/AuthorAvatar.astro';
-import { getAuthor } from '../data/authors';
+import { getAuthor, localizeAuthor } from '../data/authors';
 import { tagToSlug } from '../utils/tags';
+import { authorsPath, getUi, homePath, tagsPath } from '../i18n/ui';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { alternateUrl?: string };
 
-const { title, description, pubDate, updatedDate, heroImage, authors, tags, language } = Astro.props;
-const postAuthors = authors.map(getAuthor);
+const { title, description, pubDate, updatedDate, heroImage, authors, tags, language, alternateUrl } = Astro.props;
+const postAuthors = authors.map((id) => localizeAuthor(getAuthor(id), language));
+const t = getUi(language);
+const alternateUrls = language === 'de'
+	? { de: Astro.url.pathname, ...(alternateUrl ? { en: alternateUrl } : {}) }
+	: { en: Astro.url.pathname, ...(alternateUrl ? { de: alternateUrl } : {}) };
 ---
 
 <!doctype html>
 <html lang={language}>
 	<head>
-		<BaseHead title={`${title} · OSIRIS Blog`} description={description} image={heroImage} type="article" />
+		<BaseHead title={`${title} · OSIRIS Blog`} description={description} image={heroImage} type="article" language={language} alternateUrls={alternateUrls} />
 		<meta property="article:published_time" content={pubDate.toISOString()} />
 		{updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
 		{tags.map((tag) => <meta property="article:tag" content={tag} />)}
 	</head>
 	<body>
-		<Header />
+		<Header language={language} alternateUrl={alternateUrl} />
 		<main id="content">
 			<article>
 				<header class:list={['article-head', { 'with-hero': heroImage }]}> 
 					<div class="article-title">
-						<a class="back" href="/">← Alle Beiträge</a>
+						<a class="back" href={homePath(language)}>← {t.allPosts}</a>
 						<div class="meta">
 							<span><FormattedDate date={pubDate} language={language} /></span>
 							{language === 'en' && <span>English</span>}
@@ -41,9 +46,9 @@ const postAuthors = authors.map(getAuthor);
 								{postAuthors.map((author) => <AuthorAvatar author={author} />)}
 							</div>
 							<div>
-								<span>Von</span>
+								<span>{t.by}</span>
 								{postAuthors.map((author, index) => (
-									<><a href={`/autorinnen/${author.id}/`}>{author.name}</a>{index < postAuthors.length - 1 ? ', ' : ''}</>
+									<><a href={authorsPath(language, author.id)}>{author.name}</a>{index < postAuthors.length - 1 ? ', ' : ''}</>
 								))}
 							</div>
 						</div>
@@ -57,19 +62,19 @@ const postAuthors = authors.map(getAuthor);
 
 				<div class="article-body">
 					<div class="prose">
-						{updatedDate && <p class="updated">Aktualisiert am <FormattedDate date={updatedDate} language={language} /></p>}
+						{updatedDate && <p class="updated">{t.updated} <FormattedDate date={updatedDate} language={language} /></p>}
 						<slot />
 					</div>
 
 					<footer class="article-footer">
 						<div class="article-tags" aria-label="Tags">
-							{tags.map((tag) => <a href={`/tags/${tagToSlug(tag)}/`}>#{tag.replace(/\s+/g, '')}</a>)}
+							{tags.map((tag) => <a href={tagsPath(language, tagToSlug(tag))}>#{tag.replace(/\s+/g, '')}</a>)}
 						</div>
 						{postAuthors.map((author) => (
-							<a class="author-note" href={`/autorinnen/${author.id}/`}>
+							<a class="author-note" href={authorsPath(language, author.id)}>
 								<AuthorAvatar author={author} size="large" />
 								<span>
-									<small>Geschrieben von</small>
+									<small>{t.writtenBy}</small>
 									<strong>{author.name}</strong>
 									<span>{author.bio}</span>
 								</span>
@@ -80,7 +85,7 @@ const postAuthors = authors.map(getAuthor);
 				</div>
 			</article>
 		</main>
-		<Footer />
+		<Footer language={language} />
 	</body>
 </html>
 

@@ -15,6 +15,7 @@ const blog = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
 			language: z.enum(['de', 'en']).default('de'),
+			translationKey: z.string().optional(),
 			category: z.string().optional(),
 			categories: z.array(z.string()).optional(),
 			authors: z.array(z.string()).default(['jkoblitz']),

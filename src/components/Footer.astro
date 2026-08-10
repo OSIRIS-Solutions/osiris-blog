@@ -1,14 +1,19 @@
 ---
 import { GITHUB_URL } from '../consts';
+import { getUi, type Language } from '../i18n/ui';
+
+interface Props { language?: Language }
+const { language = 'de' } = Astro.props;
+const t = getUi(language);
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
 	<div>
 		<p class="footer-brand">Open · Smart · Intuitive</p>
-		<p>Neuigkeiten aus dem offenen OSIRIS-Ökosystem.</p>
+		<p>{t.footerCopy}</p>
 	</div>
-	<nav aria-label="Fußnavigation">
+	<nav aria-label={t.footerNavigation}>
 		<a href="https://osiris-app.de">OSIRIS</a>
 		<a href="https://wiki.osiris-app.de">Wiki</a>
 		<a href={GITHUB_URL}>GitHub</a>

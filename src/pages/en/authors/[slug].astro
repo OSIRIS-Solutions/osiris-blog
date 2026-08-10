@@ -1,6 +1,6 @@
 ---
-import AuthorProfilePage from '../../components/AuthorProfilePage.astro';
-import { authors, type Author } from '../../data/authors';
+import AuthorProfilePage from '../../../components/AuthorProfilePage.astro';
+import { authors, type Author } from '../../../data/authors';
 
 export function getStaticPaths() {
 	return authors.map((author) => ({ params: { slug: author.id }, props: { author } }));
@@ -10,4 +10,4 @@ interface Props { author: Author }
 const { author } = Astro.props;
 ---
 
-<AuthorProfilePage language="de" author={author} />
+<AuthorProfilePage language="en" author={author} />
