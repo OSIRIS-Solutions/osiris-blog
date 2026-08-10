@@ -17,6 +17,10 @@ Genau hier setzt **das neue OSIRIS Portfolio** an.
 
 Die neue Version ist nicht einfach ein visuelles Update. Wir haben mit euch gesprochen, zugehört und dann grundlegend neu gedacht, wie Forschungseinrichtungen ihre Arbeit im Web präsentieren können: weg von einer rein strukturellen Abbildung des Organigramms, hin zu einem eigenständigen Forschungsportal, das Menschen Orientierung gibt, Zusammenhänge sichtbar macht und wissenschaftliche Inhalte gezielt auffindbar werden lässt.
 
+
+> Diese Seite verwendet bewusst Screenshots aus unterschiedlichen Demo-Instanzen, um die Flexibilität von Portfolio zu zeigen. Die Inhalte stammen aus einer Testinstanz von OSIRIS und sind nicht realen Personen oder Projekten zugeordnet. 
+> Bitte beachtet, dass einige der hier gezeigten Funktionen eine **OSIRIS Version 2.1** oder höher erfordern.
+
 ## TL;DR: Das neue Portfolio in Kürze
 
 - Das neue Portfolio bietet eine echte Startseite für die Forschung.
@@ -27,7 +31,7 @@ Die neue Version ist nicht einfach ein visuelles Update. Wir haben mit euch gesp
 - Die Inhalte lassen sich individuell gestalten und an das Corporate Design der Einrichtung anpassen.
 - Lernt mehr über Portfolio auf [osiris-portfolio.de](https://osiris-portfolio.de) und schaut euch die verschiedenen Beispieldesigns an, z.B. [Demo 1](https://demo.osiris-portfolio.de) oder [Demo 4](https://demo4.osiris-portfolio.de).
 
-<!-- more -->
+
 
 ## Das Problem: Die Daten sind da – aber die Geschichten fehlen
 
