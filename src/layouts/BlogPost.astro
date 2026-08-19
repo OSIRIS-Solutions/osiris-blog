@@ -222,14 +222,33 @@ const alternateUrls = language === 'de'
 		margin-top: 0.5rem;
 	}
 
-	.prose :global(img) {
+	.prose :global(img),
+	.prose :global(.article-figure) {
 		display: block;
 		width: min(62rem, calc(100vw - 2rem));
 		max-width: none;
 		margin: 2.5rem 50%;
 		transform: translateX(-50%);
+	}
+
+	.prose :global(img) {
 		border: 1px solid var(--line-soft);
 		border-radius: var(--radius-card);
+	}
+
+	.prose :global(.article-figure img) {
+		width: 100%;
+		margin: 0;
+		transform: none;
+	}
+
+	.prose :global(.article-figure figcaption) {
+		max-width: var(--reading-width);
+		margin: 0.8rem auto 0;
+		padding-inline: 0.25rem;
+		color: var(--muted);
+		font-size: 0.9rem;
+		line-height: 1.5;
 	}
 
 	.prose :global(blockquote) {

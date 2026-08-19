@@ -129,6 +129,8 @@ In OSIRIS werden Zeitschriften zentral gespeichert und können mit Publikationen
 
 Idealerweise muss eine Zeitschrift jedoch nicht manuell angelegt werden, sondern wird über das entsprechende Feld beim Anlegen einer Aktivität hinzugefügt. OSIRIS verwendet dafür die offene Schnittstelle von OpenAlex, um Zeitschriften beispielsweise nach ihrem Namen zu finden. Noch besser ist, wenn man direkt mittels ISSN sucht, da diese als eindeutiger Identifier direkt zur richtigen Zeitschrift führt. Bereits existierende Zeitschriften werden dann verknüpft und fehlende werden neu angelegt. Die dafür notwendigen Metadaten zum Verlag, Open Access, usw. kommen ebenfalls direkt aus OpenAlex.
 
+![Dialog zum Hinzufügen eines Journals über OpenAlex](../../assets/26-08-19_add-journal-openalex.png "Die Suche nach „Nucleic Acids“ ergibt eine Vielzahl von möglichen Treffern. Falls es schwierig ist, das gesuchte Journal zu finden, hilft häufig die ISSN.")
+
 
 ## PMID und PMCID: Zentrale Kennungen in Medizin und Lebenswissenschaften
 
