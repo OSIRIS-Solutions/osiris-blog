@@ -7,7 +7,7 @@ category: "Forschungsinformation"
 authors:
   - jkoblitz
 tags: [Identifier, DOI, ORCID, ROR, Forschungsinformation, Datenqualität]
-draft: true
+draft: false
 ---
 
 
