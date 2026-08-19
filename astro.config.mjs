@@ -5,13 +5,14 @@ import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import remarkFigureCaptions from './src/plugins/remark-figure-captions.mjs';
+import remarkResponsiveTables from './src/plugins/remark-responsive-tables.mjs';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog.osiris-app.de',
 	integrations: [mdx(), sitemap()],
 	markdown: {
-		processor: unified({ remarkPlugins: [remarkFigureCaptions] }),
+		processor: unified({ remarkPlugins: [remarkFigureCaptions, remarkResponsiveTables] }),
 	},
 	fonts: [
 		{

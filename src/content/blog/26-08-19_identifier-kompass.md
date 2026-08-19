@@ -6,7 +6,7 @@ language: "de"
 category: "Forschungsinformation"
 authors:
   - jkoblitz
-tags: [Identifier, DOI, ORCID, ROR, Forschungsinformation, Datenqualität]
+tags: [Identifier, DOI, ORCID, ROR]
 draft: false
 ---
 
@@ -72,6 +72,9 @@ Für OSIRIS ist die DOI besonders wertvoll, weil sie gleich mehrere Aufgaben üb
 ### Dubletten vermeiden
 
 Bevor eine Publikation neu angelegt wird, kann OSIRIS prüfen, ob ihre DOI bereits im System vorhanden ist. Das ist wesentlich zuverlässiger als ein Vergleich von Titeln oder Autorenlisten. Schon kleine Unterschiede – ein fehlender Untertitel, andere Großschreibung oder ein zusätzlicher Bindestrich – können einen reinen Textvergleich erschweren. Die DOI bleibt dagegen eindeutig. OSIRIS normalisiert die DOI für diesen Prozess, transformiert sie in Kleinschreibung und entfernt ggf. die URL. 
+
+
+![Interface beim Hinzufügen einer DOI](../../assets/26-08-10_duplikat-doi.png "Es ist nicht möglich, eine Publikation mit einer bereits vorhandenen DOI erneut anzulegen. OSIRIS verweist stattdessen auf den vorhandenen Eintrag.")
 
 ### Metadaten automatisch importieren
 
