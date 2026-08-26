@@ -4,6 +4,7 @@ description: "Portfolio macht aus Forschungsinformationen einen lebendigen Webau
 pubDate: 2026-08-10
 language: "de"
 category: "Portfolio"
+featured: true
 authors:
   - jkoblitz
 tags: [Portfolio, Release, Wissenschaftskommunikation, Sichtbarkeit]

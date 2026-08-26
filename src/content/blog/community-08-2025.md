@@ -6,7 +6,7 @@ language: "de"
 category: "Community"
 authors: 
     - martinique
-tags: [Release]
+tags: [Release, Community]
 ---
 
 
@@ -31,6 +31,6 @@ Neben denen im Blogpost vom [31.07.2025](/blog/2025/07/31/osiris-version-150-ist
 
 Zudem wurde die Auswertung der Gremienumfrage vorgestellt und über geplante Entwicklungen gesprochen.
 
-Weitere Details und Änderungen findet ihr in der [Präsentation](/assets/documents/Community-250813.pdf).
+Weitere Details und Änderungen findet ihr in der [Präsentation](https://wiki.osiris-app.de/assets/documents/Community-250813.pdf).
 
-:date: Das nächste OSIRIS Community Event wird am **09.10.2025 um 13 Uhr** stattfinden. 
+📅  Das nächste OSIRIS Community Event wird am **09.10.2025 um 13 Uhr** stattfinden. 

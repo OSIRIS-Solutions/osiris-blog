@@ -6,7 +6,7 @@ language: "de"
 category: "Community"
 authors: 
     - jkoblitz
-tags: [Release]
+tags: [Release, Community]
 ---
 
 

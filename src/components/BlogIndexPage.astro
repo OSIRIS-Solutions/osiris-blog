@@ -17,7 +17,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft && data.lan
 const tagMap = new Map<string, string>();
 for (const tag of posts.flatMap((post) => post.data.tags)) tagMap.set(tagToSlug(tag), tag);
 const tags = [...tagMap.values()].sort((a, b) => a.localeCompare(b, language));
-const featuredIndex = posts.findIndex((post) => post.data.heroImage);
+// const featuredIndex = posts.findIndex((post) => post.data.heroImage);
 const [headlineFirst, headlineSecond] = t.headline.split('|');
 ---
 
@@ -48,7 +48,7 @@ const [headlineFirst, headlineSecond] = t.headline.split('|');
 			</nav>
 
 			<section class="post-grid" aria-label={t.allPosts}>
-				{posts.map((post, index) => <PostCard post={post} featured={index === featuredIndex} />)}
+				{posts.map((post) => <PostCard post={post} />)}
 			</section>
 		</main>
 		<Footer language={language} />

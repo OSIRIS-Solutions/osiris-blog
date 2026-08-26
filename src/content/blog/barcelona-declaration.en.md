@@ -8,6 +8,7 @@ authors:
     - jkoblitz
 tags: [Open Science, OSIRIS]
 heroImage: '../../assets/blog-default-banner.png'
+featured: true
 ---
 
 

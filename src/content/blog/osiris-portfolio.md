@@ -7,6 +7,7 @@ category: "Portfolio"
 authors: 
     - jkoblitz
 tags: [Portfolio, Webseite]
+featured: true
 ---
 
 

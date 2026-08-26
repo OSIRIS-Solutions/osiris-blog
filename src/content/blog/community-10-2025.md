@@ -6,7 +6,7 @@ language: "de"
 category: "Community"
 authors: 
     - martinique
-tags: [Release]
+tags: [Release, Community]
 ---
 
 
@@ -19,7 +19,7 @@ Die neuste Version von OSIRIS bringt euch neue Features und Verbesserungen von b
 
 ### Der neue Formular-Builder
 
-Der neue Formular-Builder bietet euch die Möglichkeit, die Aktivitätsformulare freier zu gestalten und eigene Bezeichnungen für Felder und Hilfetexte einzustellen. Eine genauere Erklärung findet ihr im [Wiki](/admins/content/activities/#formular-builder) und ein Tutorial auf unserem [YouTube-Kanal](https://www.youtube.com/watch?v=I1ZT2vlRFeA&t=13s).
+Der neue Formular-Builder bietet euch die Möglichkeit, die Aktivitätsformulare freier zu gestalten und eigene Bezeichnungen für Felder und Hilfetexte einzustellen. Eine genauere Erklärung findet ihr im [Wiki](https://wiki.osiris-app.de/admins/content/activities/#formular-builder) und ein Tutorial auf unserem [YouTube-Kanal](https://www.youtube.com/watch?v=I1ZT2vlRFeA&t=13s).
 
 ### Verschlagwortung von Aktivitäten
 
@@ -27,11 +27,11 @@ Bis jetzt konnte die Administration nur personenbezogene Schlagwörter definiere
 
 ### Qualiäts-Workflows
 
-Ein oft gewünschtes Feature steht nun endlich zur Verfügung: Die Qualitäts-Workflows. Mit den Workflows könnt ihr Prüf- und Freigabeprozesse abbilden und den Fortschritt verfolgen und auf neue wie auch schon bestehende Aktivitäten anwenden. Eine Anleitung zur Nutzung findet ihr [hier](/admins/workflows/workflows/).
+Eine Anleitung zur Nutzung findet ihr [hier](https://wiki.osiris-app.de/admins/workflows/workflows/).
 
 ### Mail Digest
 
-Mit der neuen Mail Digest Funktion können eure Nutzenden regelmäßig über Benachrichtigungen in OSIRIS per Mail informiert werden. Weitere Infos dazu findet ihr [hier](/admins/email/),
+Mit der neuen Mail Digest Funktion können eure Nutzenden regelmäßig über Benachrichtigungen in OSIRIS per Mail informiert werden. Weitere Infos dazu findet ihr [hier](https://wiki.osiris-app.de/admins/email/),
 
 ### Weitere Neuerungen
 
@@ -44,6 +44,6 @@ Mit der neuen Mail Digest Funktion können eure Nutzenden regelmäßig über Ben
 Weiterhin wurde über die Erstellung von Betriebsvereinbarungen bei der Einführung von OSIRIS gesprochen. Hierfür wird es bald Informationen im Wiki geben.  
 Ein weiteres Thema war die Motivation der Mitarbeitenden OSIRIS zu nutzen und sie von dem System zu überzeugen. Auch hier wollen wir euch in Zukunft unterstützen und Ideenanstöße geben.  
 
-Weitere Details und Änderungen findet ihr in der [Präsentation](/assets/documents/Community-251009.pdf).
+Weitere Details und Änderungen findet ihr in der [Präsentation](https://wiki.osiris-app.de/assets/documents/Community-251009.pdf).
 
-:date: Das nächste OSIRIS Community Event wird am **10.12.2025 um 13 Uhr** stattfinden. 
+📅 Das nächste OSIRIS Community Event wird am **10.12.2025 um 13 Uhr** stattfinden. 

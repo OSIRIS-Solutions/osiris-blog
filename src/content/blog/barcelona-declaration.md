@@ -7,6 +7,7 @@ category: "Open Science"
 authors: 
     - jkoblitz
 tags: [Open Science, OSIRIS]
+featured: true
 ---
 
 ## Ein Schritt hin zu offeneren, faireren und nachhaltigeren Forschungsinformationen
