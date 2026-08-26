@@ -7,6 +7,7 @@ category: "Community"
 authors: 
     - jkoblitz
 tags: [Release, Community]
+heroImage: "../../assets/community-08-2026.png"
 ---
 
 
