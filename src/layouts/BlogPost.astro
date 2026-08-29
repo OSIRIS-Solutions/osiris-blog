@@ -10,9 +10,9 @@ import { getAuthor, localizeAuthor } from '../data/authors';
 import { tagToSlug } from '../utils/tags';
 import { authorsPath, getUi, homePath, tagsPath } from '../i18n/ui';
 
-type Props = CollectionEntry<'blog'>['data'] & { alternateUrl?: string };
+type Props = CollectionEntry<'blog'>['data'] & { alternateUrl?: string; readingMinutes: number };
 
-const { title, description, pubDate, updatedDate, heroImage, authors, tags, language, alternateUrl } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, authors, tags, language, alternateUrl, readingMinutes } = Astro.props;
 const postAuthors = authors.map((id) => localizeAuthor(getAuthor(id), language));
 const t = getUi(language);
 const alternateUrls = language === 'de'
@@ -37,6 +37,8 @@ const alternateUrls = language === 'de'
 						<a class="back" href={homePath(language)}>← {t.allPosts}</a>
 						<div class="meta">
 							<span><FormattedDate date={pubDate} language={language} /></span>
+							<span aria-hidden="true">·</span>
+							<span>{t.readingTime(readingMinutes)}</span>
 							{language === 'en' && <span>English</span>}
 						</div>
 						<h1>{title}</h1>

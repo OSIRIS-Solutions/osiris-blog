@@ -23,6 +23,8 @@ export const ui = {
 		tagDescription: 'Beiträge zum Thema {tag} im OSIRIS Blog.',
 		filterLabel: 'Beiträge nach Tag entdecken',
 		allPostsLabel: 'Alle Beiträge',
+		showMoreTags: 'Weitere Tags anzeigen',
+		showFewerTags: 'Weniger Tags anzeigen',
 		eyebrow: 'OSIRIS Blog',
 		headline: 'Neues, Ideen|und Einblicke.',
 		intro:
@@ -30,6 +32,7 @@ export const ui = {
 		footerCopy: 'Neuigkeiten aus dem offenen OSIRIS-Ökosystem.',
 		languageSwitch: 'Sprache auswählen',
 		readArticle: 'lesen',
+		readingTime: (minutes: number) => `ca. ${minutes} Min. Lesezeit`,
 		imprint: 'Impressum',
 	},
 	en: {
@@ -54,6 +57,8 @@ export const ui = {
 		tagDescription: 'Posts about {tag} on the OSIRIS Blog.',
 		filterLabel: 'Explore posts by tag',
 		allPostsLabel: 'All posts',
+		showMoreTags: 'Show more tags',
+		showFewerTags: 'Show fewer tags',
 		eyebrow: 'OSIRIS Blog',
 		headline: 'News, ideas|and insights.',
 		intro:
@@ -61,6 +66,7 @@ export const ui = {
 		footerCopy: 'News from the open OSIRIS ecosystem.',
 		languageSwitch: 'Choose language',
 		readArticle: 'read',
+		readingTime: (minutes: number) => `~${minutes} min read`,
 		imprint: 'Imprint',
 	},
 } as const;

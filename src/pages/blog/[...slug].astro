@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { findTranslation } from '../../utils/translations';
+import { getReadingTime } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -17,8 +18,9 @@ const { Content } = await render(post);
 const posts = await getCollection('blog', ({ data }) => !data.draft);
 const translation = findTranslation(post, posts);
 const alternateUrl = translation ? `/blog/${translation.id}/` : undefined;
+const readingTime = getReadingTime(post.body);
 ---
 
-<BlogPost {...post.data} alternateUrl={alternateUrl}>
+<BlogPost {...post.data} alternateUrl={alternateUrl} readingMinutes={readingTime.minutes}>
 	<Content />
 </BlogPost>

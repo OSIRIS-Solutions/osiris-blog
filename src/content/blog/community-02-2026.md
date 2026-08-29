@@ -6,7 +6,7 @@ language: "de"
 category: "Community"
 authors: 
     - martinique
-tags: [Release, Community]
+tags: [Community, Release, OSIRIS]
 ---
 
 

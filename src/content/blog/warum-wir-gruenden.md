@@ -6,7 +6,7 @@ language: "de"
 category: "Über uns"
 authors: 
     - jkoblitz
-tags: [intro, storytime, community, OSIRIS]
+tags: [Einführung, storytime, community, OSIRIS]
 ---
 
 

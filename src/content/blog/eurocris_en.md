@@ -6,7 +6,7 @@ language: "en"
 category: "Community"
 authors: 
     - martinique
-tags: [Community]
+tags: [Community, Conference]
 ---
 
 We are pleased to announce that **OSIRIS Solutions**, as one of the sponsors of euroCRIS, supports the CRIS conference taking place in May 2026. This aligns with our continued focus on open, interoperable research information systems and collaboration within the research community.

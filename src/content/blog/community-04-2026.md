@@ -6,7 +6,7 @@ language: "de"
 category: "Community"
 authors: 
     - martinique
-tags: [Release, Community]
+tags: [Community, OSIRIS]
 heroImage: '../../assets/sophie-osiris-2.0.png'
 ---
 

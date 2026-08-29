@@ -5,6 +5,7 @@ import { getAuthor } from '../data/authors';
 import AuthorAvatar from './AuthorAvatar.astro';
 import FormattedDate from './FormattedDate.astro';
 import { getUi } from '../i18n/ui';
+import { getReadingTime } from '../utils/readingTime';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -15,6 +16,7 @@ const postAuthors = post.data.authors.map(getAuthor);
 const isRelease = post.data.tags.some((tag) => tag.toLowerCase() === 'release');
 const t = getUi(post.data.language);
 const featured = post.data.featured;
+const readingTime = getReadingTime(post.body);
 ---
 
 <article class:list={['post-card', { featured, 'has-image': post.data.heroImage, release: isRelease }]}> 
@@ -27,7 +29,11 @@ const featured = post.data.featured;
 
 		<div class="card-content">
 			<div class="card-topline">
-				<span><FormattedDate date={post.data.pubDate} language={post.data.language} /></span>
+				<div class="card-meta">
+					<span><FormattedDate date={post.data.pubDate} language={post.data.language} /></span>
+					<span aria-hidden="true">·</span>
+					<span>{t.readingTime(readingTime.minutes)}</span>
+				</div>
 				{post.data.language === 'en' && <span class="language">EN</span>}
 			</div>
 
@@ -120,6 +126,13 @@ const featured = post.data.featured;
 		font-weight: 700;
 		letter-spacing: 0.09em;
 		text-transform: uppercase;
+	}
+
+	.card-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem;
 	}
 
 	.language {

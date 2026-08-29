@@ -7,7 +7,7 @@ category: "Portfolio"
 featured: true
 authors:
   - jkoblitz
-tags: [Portfolio, Release, Wissenschaftskommunikation, Sichtbarkeit]
+tags: [Portfolio, Wissenschaftskommunikation, Webseite]
 heroImage: "../../assets/portfolio-hero.png"
 ---
 

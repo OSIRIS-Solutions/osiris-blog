@@ -7,7 +7,7 @@ categories:
     - "Über uns"
 authors: 
     - jkoblitz
-tags: [intro, OSIRIS, storytime]
+tags: [Einführung, OSIRIS, storytime]
 ---
 
 

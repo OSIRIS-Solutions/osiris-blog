@@ -6,7 +6,7 @@ language: "de"
 category: "Community"
 authors: 
     - martinique
-tags: [Community]
+tags: [Community, Konferenz]
 ---
 
 # OSIRIS Solutions unterstützt die euroCRIS-Konferenz 2026

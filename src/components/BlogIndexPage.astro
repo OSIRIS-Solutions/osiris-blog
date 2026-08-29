@@ -14,10 +14,24 @@ const t = getUi(language);
 const posts = (await getCollection('blog', ({ data }) => !data.draft && data.language === language)).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-const tagMap = new Map<string, string>();
-for (const tag of posts.flatMap((post) => post.data.tags)) tagMap.set(tagToSlug(tag), tag);
-const tags = [...tagMap.values()].sort((a, b) => a.localeCompare(b, language));
-// const featuredIndex = posts.findIndex((post) => post.data.heroImage);
+const tagMap = new Map<string, { label: string; count: number }>();
+for (const post of posts) {
+	const postTags = new Set<string>();
+	for (const tag of post.data.tags) {
+		const slug = tagToSlug(tag);
+		if (postTags.has(slug)) continue;
+		postTags.add(slug);
+		const current = tagMap.get(slug);
+		tagMap.set(slug, { label: current?.label ?? tag, count: (current?.count ?? 0) + 1 });
+	}
+}
+const tags = [...tagMap.entries()]
+	.map(([slug, tag]) => ({ slug, ...tag }))
+	.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, language));
+const visibleTagCount = 8;
+const visibleTags = tags.slice(0, visibleTagCount);
+const extraTags = tags.slice(visibleTagCount);
+const featuredIndex = posts.findIndex((post) => post.data.heroImage);
 const [headlineFirst, headlineSecond] = t.headline.split('|');
 ---
 
@@ -42,9 +56,39 @@ const [headlineFirst, headlineSecond] = t.headline.split('|');
 				<p class="intro-copy">{t.intro}</p>
 			</header>
 
-			<nav class="tag-filter" aria-label={t.filterLabel}>
+			<nav class="tag-filter" aria-label={t.filterLabel} data-tag-filter>
 				<a class="active" href={homePath(language)}>{t.allPostsLabel}</a>
-				{tags.slice(0, 8).map((tag) => <a href={tagsPath(language, tagToSlug(tag))}>#{tag.replace(/\s+/g, '')}</a>)}
+				{visibleTags.map((tag) => (
+					<a href={tagsPath(language, tag.slug)}>
+						<span>#{tag.label.replace(/\s+/g, '')}</span>
+						<span class="tag-count" aria-hidden="true">{tag.count}</span>
+						<span class="sr-only"> · {tag.count} {tag.count === 1 ? t.post : t.postsPlural}</span>
+					</a>
+				))}
+				{extraTags.length > 0 && (
+					<>
+						<button
+							type="button"
+							class="more-tags-toggle"
+							aria-expanded="false"
+							aria-controls={`extra-tags-${language}`}
+							aria-label={t.showMoreTags}
+							data-show-label={t.showMoreTags}
+							data-hide-label={t.showFewerTags}
+						>
+							<span aria-hidden="true">…</span>
+						</button>
+						<div class="extra-tags" id={`extra-tags-${language}`} hidden>
+							{extraTags.map((tag) => (
+								<a href={tagsPath(language, tag.slug)}>
+									<span>#{tag.label.replace(/\s+/g, '')}</span>
+									<span class="tag-count" aria-hidden="true">{tag.count}</span>
+									<span class="sr-only"> · {tag.count} {tag.count === 1 ? t.post : t.postsPlural}</span>
+								</a>
+							))}
+						</div>
+					</>
+				)}
 			</nav>
 
 			<section class="post-grid" aria-label={t.allPosts}>
@@ -54,6 +98,21 @@ const [headlineFirst, headlineSecond] = t.headline.split('|');
 		<Footer language={language} />
 	</body>
 </html>
+
+<script>
+	document.querySelectorAll<HTMLElement>('[data-tag-filter]').forEach((filter) => {
+		const toggle = filter.querySelector<HTMLButtonElement>('.more-tags-toggle');
+		const extraTags = filter.querySelector<HTMLElement>('.extra-tags');
+		if (!toggle || !extraTags) return;
+
+		toggle.addEventListener('click', () => {
+			const expanded = toggle.getAttribute('aria-expanded') === 'true';
+			toggle.setAttribute('aria-expanded', String(!expanded));
+			toggle.setAttribute('aria-label', expanded ? toggle.dataset.showLabel ?? '' : toggle.dataset.hideLabel ?? '');
+			extraTags.hidden = expanded;
+		});
+	});
+</script>
 
 <style>
 	.blog-intro {
@@ -89,28 +148,67 @@ const [headlineFirst, headlineSecond] = t.headline.split('|');
 
 	.tag-filter {
 		display: flex;
-		overflow-x: auto;
+		flex-wrap: wrap;
 		padding: 0 0 1.5rem;
 		gap: 0.45rem;
-		scrollbar-width: thin;
 	}
 
-	.tag-filter a {
+	.tag-filter a,
+	.more-tags-toggle {
+		display: inline-flex;
+		align-items: center;
 		padding: 0.5rem 0.85rem;
 		border: 1px solid var(--line);
 		border-radius: 99px;
 		background: var(--surface);
 		color: var(--text-soft);
+		font-family: inherit;
 		font-size: 0.82rem;
 		font-weight: 700;
 		text-decoration: none;
 		white-space: nowrap;
 	}
 
+	.more-tags-toggle {
+		min-width: 2.55rem;
+		justify-content: center;
+		cursor: pointer;
+		font-size: 1.05rem;
+		line-height: 1;
+	}
+
+	.extra-tags {
+		display: contents;
+	}
+
+	.extra-tags[hidden] {
+		display: none;
+	}
+
+	.tag-count {
+		min-width: 1.35rem;
+		margin-left: 0.45rem;
+		padding: 0.08rem 0.38rem;
+		border-radius: 99px;
+		background: var(--surface-muted);
+		color: var(--muted);
+		font-size: 0.68rem;
+		line-height: 1.35;
+		text-align: center;
+	}
+
 	.tag-filter a:hover,
-	.tag-filter a.active {
+	.tag-filter a.active,
+	.more-tags-toggle:hover,
+	.more-tags-toggle[aria-expanded='true'] {
 		border-color: var(--teal-900);
 		background: var(--teal-900);
+		color: white;
+	}
+
+	.tag-filter a:hover .tag-count,
+	.tag-filter a.active .tag-count {
+		background: rgba(255, 255, 255, 0.18);
 		color: white;
 	}
 
