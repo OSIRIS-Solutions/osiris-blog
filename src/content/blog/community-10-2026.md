@@ -12,7 +12,7 @@ heroImage: "../../assets/community-10-2026.png"
 
 Vielen Dank an alle, die beim Community Meeting dabei waren! Diesmal haben wir über aktuelle Sicherheitsupdates, neue Funktionen und die nächsten größeren Entwicklungsschritte gesprochen. Besonders viel Raum haben der Ausblick auf OSIRIS 3.0 und die Frage bekommen, wie ihr künftig mit einem eigenen Chatbot auf ausgewählte OSIRIS-Daten zugreifen könnt.
 
-Hier findet ihr [die gezeigte Präsentation als PDF-Datei](/docs/OSIRIS%20Community%2026-10.pdf) und im folgenden habe ich die wichtigsten Themen und Neuerungen zusammengefasst, die wir im Meeting besprochen haben.
+Hier findet ihr [die gezeigte Präsentation als PDF-Datei](/docs/OSIRIS%20Community%202026-10.pdf) und im folgenden habe ich die wichtigsten Themen und Neuerungen zusammengefasst, die wir im Meeting besprochen haben.
 
 ## Sicherheitsupdates und OSIRIS 2.1.3
 
