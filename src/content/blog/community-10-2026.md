@@ -14,11 +14,11 @@ Vielen Dank an alle, die beim Community Meeting dabei waren! Diesmal haben wir �
 
 Hier findet ihr [die gezeigte Präsentation als PDF-Datei](/docs/OSIRIS%20Community%2026-10.pdf) und im folgenden habe ich die wichtigsten Themen und Neuerungen zusammengefasst, die wir im Meeting besprochen haben.
 
-## Sicherheitsupdates und OSIRIS 2.13
+## Sicherheitsupdates und OSIRIS 2.1.3
 
 In der Woche vor dem Meeting wurden zwei PHP-Sicherheitslücken bekannt. Wir haben den verfügbaren Mini-Patch sofort eingespielt und noch am selben Abend alle betreuten Instanzen aktualisiert, sobald auch die Betriebssystem-Updates verfügbar waren. Die Instanzen blieben dabei online.
 
-Am Morgen des Meetings ist außerdem OSIRIS 2.13 erschienen. Das Release enthält vor allem Sicherheits- und Betriebsverbesserungen sowie Fehlerbehebungen. Wenn ihr OSIRIS 2 selbst betreibt, empfehlen wir euch ein Update.
+Am Morgen des Meetings ist außerdem OSIRIS 2.1.3 erschienen. Das Release enthält vor allem Sicherheits- und Betriebsverbesserungen sowie Fehlerbehebungen. Wenn ihr OSIRIS 2 selbst betreibt, empfehlen wir euch ein Update.
 
 Auch einige kleinere Neuerungen sind dazugekommen: Beim Import könnt ihr ORCID-Aktivitäten jetzt überspringen, und die Eventübersicht auf der Startseite wurde verbessert. Im Adminbereich findet ihr einen neuen Datenbankbereich mit Shortcuts für Render-Vorgänge sowie zusätzliche OSIRIS-Informationen. Ein Health Check zeigt euch unter anderem, ob benötigte Verzeichnisse beschreibbar sind und welche Upload-Limits gelten. Auch die PHP-Systemausgabe ist jetzt übersichtlicher.
 
@@ -26,7 +26,7 @@ Für regelmäßige Hintergrundimporte ist außerdem eine zentrale Ablage der Imp
 
 Unsere Docker-Umgebung läuft bereits mit PHP 8.4. Bei MongoDB prüfen wir noch die nächsten Schritte: Ein größeres Update einer verwendeten Bibliothek könnte es ermöglichen, mit dem nächsten größeren OSIRIS-Release auch die aktuelle MongoDB-Version zu unterstützen.
 
-Aus der Community kam außerdem der Hinweis, dass zu Version 2.13 noch kein Tag und kein GitHub-Release vorhanden waren. Danke dafür! Wir wollen auch für Patch-Releases wieder GitHub-Releases anlegen, damit ihr neue Versionen dort zuverlässig verfolgen könnt.
+Aus der Community kam außerdem der Hinweis, dass zu Version 2.1.3 noch kein Tag und kein GitHub-Release vorhanden waren. Danke dafür! Wir wollen auch für Patch-Releases wieder GitHub-Releases anlegen, damit ihr neue Versionen dort zuverlässig verfolgen könnt.
 
 ## Vier gesponserte Funktionen in Vorbereitung
 
@@ -81,15 +81,16 @@ Unsere **Community Days finden Ende Januar 2027** statt. Für Community-Mitglied
 
 Im Meeting entstand zum Beispiel die Idee einer etwa einstündigen Austauschsession zu **Genehmigungsworkflows**. Dabei könnt ihr Erfahrungen teilen und besprechen, wie unterschiedliche Institute ihre Prozesse in OSIRIS gestalten. Es gab bereits Interesse aus der Runde, auch von einer Teilnehmerin, die OSIRIS noch testet und den Einsatz im nächsten Jahr plant. Reicht solche Vorschläge gerne direkt ein; bei der Programmplanung berücksichtigen wir die verschiedenen Zielgruppen und Interessen.
 
-Ein weiteres Thema für ein kommendes Community-Gespräch sind die **OSIRIS Commons** und die damit verbundene KDSF-Konformität. Außerdem gibt es eine informelle Zusage der KFiT, die Transferaktivitäten im neuen KDSF vorzustellen. Das bietet uns die Gelegenheit, gemeinsam über die Umsetzung und deren Qualität zu sprechen.
+Ein weiteres Thema für die Community Days sind die **OSIRIS Commons** und die damit verbundene KDSF-Konformität. Das stieß im Meeting ebenfalls auf Interesse.
+
 
 ## Weitere Fragen und Hinweise
 
 Im Blog findet ihr neben den Meeting-Zusammenfassungen auch einen [Beitrag zu Strategien für die Einführung von OSIRIS](/blog/big-bang-oder-schrittweise-einfuehrung/). Eure Erfahrungen und Rückmeldungen dazu interessieren uns sehr! Aus der Runde kam außerdem der Hinweis, dass der Blog auf der OSIRIS-Website noch nicht verlinkt sei. Das schauen wir uns an.
 
-Bitte nehmt auch an unserer kurzen **Community-Umfrage** teil. Sie dauert etwa fünf Minuten und bietet Raum für eure Erfahrungen und Wünsche. Wer am Ende eine E-Mail-Adresse angibt, kann an der Verlosung einer Geschenkbox teilnehmen, unter anderem mit einer OSIRIS-Tasse und einem Kartenspiel. Als Frist für die Verlosung wurde im Meeting der **11. November** genannt. Danach bleibt die Umfrage offen, die Teilnahme an der Verlosung endet aber.
+Bitte nehmt auch an unserer kurzen **Community-Umfrage** teil. Sie dauert etwa fünf Minuten und bietet Raum für eure Erfahrungen und Wünsche. Wer am Ende eine E-Mail-Adresse angibt, kann an der Verlosung einer Geschenkbox teilnehmen, unter anderem mit einer OSIRIS-Tasse und einem Kartenspiel. Als Frist für die Verlosung wurde im Meeting der **11. November 2026** genannt. Danach bleibt die Umfrage offen, die Teilnahme an der Verlosung endet aber. Ihr findet die Umfrage [hier](https://forms.cloud.microsoft/e/15Thq73N1G).
 
-Eine Frage betraf außerdem **Altmetric- und PlumX-Badges** im öffentlichen Portfolio. Diese Badges werden derzeit nur intern verwendet und von OSIRIS nicht im Portfolio ausgespielt. Ob und unter welchen Bedingungen eine öffentliche institutionelle Nutzung kostenpflichtig wäre, konnten wir im Meeting nicht abschließend klären.
+Eine Frage betraf außerdem **Altmetric-Badges** im öffentlichen Portfolio. Diese Badges werden derzeit nur intern verwendet und von OSIRIS nicht im Portfolio ausgespielt. Ob und unter welchen Bedingungen eine öffentliche institutionelle Nutzung kostenpflichtig wäre, konnten wir im Meeting nicht abschließend klären.
 
 ## Save the Date
 
