@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-tldeq5d5><head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.png"><!-- app icon --><link rel="apple-touch-icon" href="/favicon2.png"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="OSIRIS Blog" href="https://blog.osiris-app.de/en/rss.xml"><meta name="generator" content="Astro v7.2.0"><style>@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/89758defcfa85239.woff") format("woff");font-display:swap;font-weight:400;font-style:normal;}@font-face{font-family:Atkinson-c7f4c4e8b285552f;src:url("/_astro/fonts/14aa8dd5744dd4bc.woff") format("woff");font-display:swap;font-weight:700;font-style:normal;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.3717%;ascent-override:80.1033%;descent-override:25.2587%;line-gap-override:0%;}@font-face{font-family:"Atkinson-c7f4c4e8b285552f fallback: Arial Bold";src:local("Arial Bold");font-display:swap;font-weight:700;font-style:normal;size-adjust:92.2954%;ascent-override:86.2448%;descent-override:27.1953%;line-gap-override:0%;}:root{--font-atkinson:Atkinson-c7f4c4e8b285552f,"Atkinson-c7f4c4e8b285552f fallback: Arial","Atkinson-c7f4c4e8b285552f fallback: Arial Bold",sans-serif;}</style><link rel="preload" href="/_astro/fonts/89758defcfa85239.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/_astro/fonts/14aa8dd5744dd4bc.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://blog.osiris-app.de/blog/26-08-19_identifier-kompassen/"><link rel="alternate" hreflang="de" href="https://blog.osiris-app.de/blog/26-08-19_identifier-kompass/"><link rel="alternate" hreflang="en" href="https://blog.osiris-app.de/blog/26-08-19_identifier-kompassen/"><link rel="alternate" hreflang="x-default" href="https://blog.osiris-app.de/blog/26-08-19_identifier-kompass/"><!-- Primary Meta Tags --><title>ORCID, ROR, DOI and more: a guide to identifiers · OSIRIS Blog</title><meta name="description" content="Why unique identifiers are essential for reliable research information, which identifiers you should know, and how OSIRIS uses them to import, link and deduplicate records."><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://blog.osiris-app.de/blog/26-08-19_identifier-kompassen/"><meta property="og:title" content="ORCID, ROR, DOI and more: a guide to identifiers · OSIRIS Blog"><meta property="og:description" content="Why unique identifiers are essential for reliable research information, which identifiers you should know, and how OSIRIS uses them to import, link and deduplicate records."><meta property="og:image" content="https://blog.osiris-app.de/_astro/blog-default-banner.Ch1YmWTA.png"><meta property="og:locale" content="en_US"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ORCID, ROR, DOI and more: a guide to identifiers · OSIRIS Blog"><meta name="twitter:description" content="Why unique identifiers are essential for reliable research information, which identifiers you should know, and how OSIRIS uses them to import, link and deduplicate records."><meta name="twitter:image" content="https://blog.osiris-app.de/_astro/blog-default-banner.Ch1YmWTA.png"><meta property="article:published_time" content="2026-08-19T00:00:00.000Z"><meta property="article:tag" content="Identifier"><meta property="article:tag" content="DOI"><meta property="article:tag" content="ORCID"><meta property="article:tag" content="ROR"><link rel="stylesheet" href="/_astro/Header.D-U9COag.css"><style>.author-avatar[data-astro-cid-ccluwrv3]{border:2px solid var(--surface);background:linear-gradient(145deg, var(--teal-soft), #fff);width:2.25rem;height:2.25rem;color:var(--teal-900);letter-spacing:.05em;border-radius:50%;flex:none;place-items:center;font-size:.7rem;font-weight:800;display:inline-grid;overflow:hidden}.author-avatar[data-astro-cid-ccluwrv3].large{width:6.5rem;height:6.5rem;font-size:1.5rem}.author-avatar[data-astro-cid-ccluwrv3] img[data-astro-cid-ccluwrv3]{border-radius:inherit;object-fit:cover;width:100%;height:100%}
+</style><link rel="stylesheet" href="/_astro/_..Bgn6R5H9.css"></head><body data-astro-cid-tldeq5d5><a class="skip-link" href="#content" data-astro-cid-nen7h5rs>Skip to content</a><header class="site-header" data-astro-cid-nen7h5rs><nav aria-label="Main navigation" data-astro-cid-nen7h5rs><a class="brand" href="/en/" aria-label="OSIRIS Blog – Home" data-astro-cid-nen7h5rs><img src="/OSIRIS-blog.svg" alt="" height="100" width="200" data-astro-cid-nen7h5rs></a><div class="nav-links" data-astro-cid-nen7h5rs><a href="/en/" data-astro-cid-nen7h5rs="true">Posts</a><a href="/en/authors/" data-astro-cid-nen7h5rs="true">Authors</a><a href="/en/rss.xml" data-astro-cid-nen7h5rs>RSS</a><a class="github-link" href="https://github.com/OSIRIS-Solutions" target="_blank" rel="me noreferrer" data-astro-cid-nen7h5rs>GitHub <span aria-hidden="true" data-astro-cid-nen7h5rs>↗</span></a><div class="language-switch" role="group" aria-label="Choose language" data-astro-cid-nen7h5rs><a href="/blog/26-08-19_identifier-kompass/" lang="de" data-astro-cid-nen7h5rs>DE</a><a href="/blog/26-08-19_identifier-kompassen/" class="active" lang="en" aria-current="page" data-astro-cid-nen7h5rs>EN</a></div></div></nav></header><main id="content" data-astro-cid-tldeq5d5><article data-astro-cid-tldeq5d5><header class="article-head" data-astro-cid-tldeq5d5><div class="article-title" data-astro-cid-tldeq5d5><a class="back" href="/en/" data-astro-cid-tldeq5d5>← All posts</a><div class="meta" data-astro-cid-tldeq5d5><span data-astro-cid-tldeq5d5><time datetime="2026-08-19T00:00:00.000Z">Aug 19, 2026</time></span><span aria-hidden="true" data-astro-cid-tldeq5d5>·</span><span data-astro-cid-tldeq5d5>~13 min read</span><span data-astro-cid-tldeq5d5>English</span></div><h1 data-astro-cid-tldeq5d5>ORCID, ROR, DOI and more: a guide to identifiers</h1><p class="description" data-astro-cid-tldeq5d5>Why unique identifiers are essential for reliable research information, which identifiers you should know, and how OSIRIS uses them to import, link and deduplicate records.</p><div class="byline" data-astro-cid-tldeq5d5><div class="avatar-stack" aria-hidden="true" data-astro-cid-tldeq5d5><span class="author-avatar small" aria-hidden="true" data-astro-cid-ccluwrv3><img src="/img/julia.jpeg" alt="" loading="lazy" data-astro-cid-ccluwrv3></span></div><div data-astro-cid-tldeq5d5><span data-astro-cid-tldeq5d5>By</span><a href="/en/authors/jkoblitz/" data-astro-cid-tldeq5d5>Julia Koblitz</a></div></div></div></header><div class="article-body" data-astro-cid-tldeq5d5><div class="prose" data-astro-cid-tldeq5d5><p>A publication has a title. A person has a name. A university has an address. So why do we also need cryptic strings such as <code>10.1000/xyz123</code>, <code>0000-0002-1825-0097</code> or <code>https://ror.org/03yrm5c26</code>?</p>
+<p>The short answer: <strong>because names and titles are not unique.</strong></p>
+<p>Several people can share the same name. A person may change their name, publish using initials or have their name spelled differently across databases. Umlauts and other special characters are particularly prone to causing problems. Institutions change their names, merge or use names in several languages. Even publication titles are less reliable than they might seem: they can contain typos, appear in translation or be almost identical to other titles.</p>
+<p>Identifiers solve this problem. They give people, publications, organisations and other objects a unique reference. In a research information system such as OSIRIS, they are therefore much more than a technical detail: they help match data correctly, prevent duplicates, bring information together from different sources and enrich records automatically.</p>
+<h2 id="what-is-a-persistent-identifier">What is a persistent identifier?</h2>
+<p>An <strong>identifier</strong> is simply a unique reference to a particular object. A <strong>persistent identifier</strong>, or PID, goes a step further: it is intended to remain stable over time and keep the object findable even when, for example, its web address changes.</p>
+<p>A conventional URL describes <strong>where</strong> something can currently be found. A persistent identifier describes <strong>what</strong> it is.</p>
+<p>Think of it as moving house. When a journal reorganises its website or a repository moves to another server, an old URL may stop working. A DOI, however, stays the same. Behind the scenes, only the current address to which it points needs updating.</p>
+<p>Not every identifier used in research is a persistent identifier in the strict technical sense. ISBNs, PMIDs and arXiv IDs each have their own rules and infrastructures. In the everyday work of a research information system, the key question is whether an identifier reliably identifies an object and enables links to other data sources.</p>
+<h2 id="why-research-information-systems-need-identifiers">Why research information systems need identifiers</h2>
+<p>A research information system brings together information from many sources: researchers enter activities themselves, publications are imported, projects come from administrative processes, and organisations are linked to external partners. Without unique identifiers, the system would repeatedly have to guess from names, titles and other text fields whether two records refer to the same thing.</p>
+<p>Identifiers provide reliable points of reference. Among other things, they enable:</p>
+<ul>
+<li><strong>Deduplication:</strong> Two records with the same DOI refer to the same publication and should not be created twice.</li>
+<li><strong>Automated imports:</strong> A DOI, ORCID iD or ROR ID can be used to retrieve structured metadata from public services.</li>
+<li><strong>Reliable links:</strong> People, publications and organisations can be linked unambiguously across system boundaries.</li>
+<li><strong>Better data quality:</strong> Standardised metadata reduces typos, inconsistent spelling and incomplete information.</li>
+<li><strong>Long-term findability:</strong> References remain more stable even when websites or technical systems change.</li>
+<li><strong>Interoperability:</strong> OSIRIS data can be exchanged more easily with repositories, library catalogues, research portals and other information systems.</li>
+</ul>
+<p>As a general rule, the more <strong>appropriate and verified</strong> identifiers a record has, the better. A large number of unchecked identifiers does not help. What matters is that each ID is assigned to the correct object.</p>
+<h2 id="the-main-identifiers-at-a-glance">The main identifiers at a glance</h2>
+<div class="table-scroll">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Identifier</th><th>Identifies</th><th>Particularly relevant to</th><th>Typical example</th></tr></thead><tbody><tr><td>DOI</td><td>Publications, datasets, software and other research objects</td><td>Almost all disciplines</td><td>Journal article or research dataset</td></tr><tr><td>ORCID iD</td><td>Researchers and other contributors</td><td>All disciplines</td><td>Unambiguous identification of a person</td></tr><tr><td>ROR ID</td><td>Research organisations</td><td>All disciplines</td><td>University, institute or funding organisation</td></tr><tr><td>ISBN</td><td>Individual editions of books</td><td>Especially the humanities and social sciences</td><td>Monograph or edited volume</td></tr><tr><td>ISSN</td><td>Continuing publications</td><td>Journals and series</td><td>Scholarly journal</td></tr><tr><td>PMID</td><td>Records in PubMed</td><td>Medicine and the life sciences</td><td>Biomedical journal article</td></tr><tr><td>PMCID</td><td>Freely accessible full texts in PubMed Central</td><td>Medicine and the life sciences</td><td>Archived full text of an article</td></tr><tr><td>arXiv ID</td><td>Preprints in arXiv</td><td>Physics, mathematics, computer science and related fields</td><td>Preprint</td></tr><tr><td>Handle or URN</td><td>Digital objects in repositories</td><td>Institutional publications and digital collections</td><td>Thesis or repository record</td></tr><tr><td>Accession number</td><td>Records in specialist databases</td><td>Fields including the life sciences and geosciences</td><td>Sequence, structure or sample record</td></tr><tr><td>OpenAlex ID</td><td>Research entities in the OpenAlex knowledge graph</td><td>Analysis and data linking</td><td>Work, person, institution or topic</td></tr></tbody></table></div>
+<p>This list is not exhaustive. Depending on the discipline, other identifiers may be important, including patent numbers, clinical trial IDs, grant identifiers or IDs from specialist databases. The underlying principle remains the same: <strong>different identifiers identify different kinds of things.</strong></p>
+<h2 id="doi-the-key-identifier-for-publications-in-osiris">DOI: the key identifier for publications in OSIRIS</h2>
+<p>The <strong>Digital Object Identifier</strong>, or DOI, is one of the most important identifiers for scholarly publications today. DOIs are assigned to journal articles, book chapters, books, conference contributions, research data, reports and software, among other outputs. They are registered through official registration agencies such as <a href="https://crossref.org/">Crossref</a> or <a href="https://datacite.org/">DataCite</a>.</p>
+<p>DOIs are particularly valuable for OSIRIS because they serve several purposes at once.</p>
+<h3 id="preventing-duplicates">Preventing duplicates</h3>
+<p>Before creating a publication record, OSIRIS can check whether its DOI already exists in the system. This is much more reliable than comparing titles or author lists. Even small differences, such as a missing subtitle, different capitalisation or an extra hyphen, can make text comparisons difficult. The DOI remains unambiguous. For this process, OSIRIS normalises the DOI by converting it to lower case and removing the URL prefix where necessary.</p>
+<figure class="article-figure"><img alt="Interface for adding a DOI" loading="lazy" decoding="async" width="1518" height="414" src="/_astro/26-08-10_duplikat-doi.lw4s_QcI_Z2sHkKn.webp" srcset=""><figcaption>A publication with an existing DOI cannot be added again. OSIRIS points to the existing record instead.</figcaption></figure>
+<h3 id="importing-metadata-automatically">Importing metadata automatically</h3>
+<p>In many cases, a DOI is all you need instead of manually entering the title, authors, journal, publication year and other details. OSIRIS automatically retrieves the associated metadata from public services.</p>
+<p>The import follows a series of steps:</p>
+<ol>
+<li>OSIRIS first looks up the DOI in <strong>Crossref</strong>, one of the main registration agencies for DOIs of scholarly publications.</li>
+<li>If no record is available there, OSIRIS looks for the DOI in <strong>DataCite</strong>. DataCite plays a particularly important role for research data, software and other research objects.</li>
+<li>OSIRIS then enriches the record with information from <strong>OpenAlex</strong>. This may include open access information missing from the previous sources. OpenAlex also supplies citation counts and topic assignments, which OSIRIS uses for the Research Spectrum.</li>
+</ol>
+<p>A single identifier can therefore produce a largely complete record enriched with additional information. This saves time while making metadata more consistent.</p>
+<blockquote>
+<p>In OSIRIS, a DOI is more than a link to a publication. It is the key to importing, enriching and deduplicating records.</p>
+</blockquote>
+<p>A DOI alone does not guarantee perfect metadata, however. Registration metadata can also be incomplete or incorrect. Imported details should therefore still be reviewed, particularly names, publication types and institutional affiliations.</p>
+<h2 id="orcid-id-a-unique-identifier-for-people">ORCID iD: a unique identifier for people</h2>
+<p>Identifying people unambiguously is particularly difficult. Names can be shared, change over time or appear in different abbreviated forms in publications. Systems do not always handle special characters consistently. Moving to another institution should not fragment a person’s research profile either.</p>
+<p>The <strong>ORCID iD</strong> provides a persistent, internationally established identifier. It belongs to the individual and can accompany them across institutions, publishers and research projects. Researchers can record publications, employment, education and other research activities in their ORCID records.</p>
+<p>The ORCID integration was significantly expanded in <strong>OSIRIS 2.1</strong>. Once an institution has configured the integration and supplied the required API credentials, users can connect and authenticate their ORCID iDs directly in OSIRIS. This goes beyond entering a number in a profile: through ORCID, the person confirms that they have access to the associated account. This opens up further possibilities.</p>
+<p>Data can then be imported from ORCID into OSIRIS. This makes it easier to maintain a profile and provides another bridge between the institutional research information system and international research infrastructure.</p>
+<p>The distinction matters: an authenticated ORCID iD confirms the connection between the OSIRIS account and the ORCID account. It is not a general proof of identity and does not, on its own, establish the quality of every entry in the ORCID record.</p>
+<h2 id="ror-identifying-organisations-across-different-names">ROR: identifying organisations across different names</h2>
+<p>Organisations can also be surprisingly difficult to manage without identifiers. A university may appear under its German name, an English translation or an abbreviation. Institutes are renamed, spun off or merged. Different spellings and organisational levels add further complexity.</p>
+<p>The <strong>Research Organization Registry</strong>, or ROR, provides open identifiers for research organisations. Alongside its preferred name, a ROR record includes information such as alternative names, location, website and relationships with other organisations.</p>
+<p>OSIRIS uses ROR when creating organisation records centrally. Instead of entering all the details of an external institution manually, users can search ROR directly. The selected organisation is created using its unique ROR ID, and available metadata is imported. A particularly useful feature is that the organisation can immediately appear on the map when its coordinates are correctly assigned.</p>
+<p>This helps prevent the same partner organisation from being entered several times under slightly different names. The ROR ID also improves subsequent analyses and data exchange with other systems. When publications, projects and collaborations use the same ROR ID, they can reliably be linked to the same organisation.</p>
+<p>Not every organisation relevant to your research will be listed in ROR, however. Although ROR already contains more than 130,000 research organisations, some project partners or funders are still missing, and some may never be included. Your research might be funded by a local beekeeping association, for example, or a project partner might be a medium-sized company in the region. Authorised users create these organisations manually in OSIRIS, ideally adding alternative names and common abbreviations so that colleagues can find them too.</p>
+<h2 id="isbn-essential-for-books">ISBN: essential for books</h2>
+<p>Not all disciplines publish in the same way. In many natural and life sciences, journal articles with DOIs are central. In the social sciences and humanities, monographs, edited volumes and book chapters play a much larger role. Many still do not have a DOI.</p>
+<p>This is where the <strong>ISBN</strong> is particularly important. It identifies a specific edition of a book. A hardback, paperback, e-book or new edition can therefore each have a different ISBN. This matters for deduplication: two different ISBNs do not necessarily represent two different works. They may identify different editions of the same title.</p>
+<p>For book chapters, the ISBN generally belongs to the parent book or edited volume rather than the individual chapter. It helps identify the publication context but does not replace a chapter’s own DOI.</p>
+<h2 id="issn-for-journals">ISSN for journals</h2>
+<p>The <strong>ISSN</strong> serves a different purpose. It identifies continuing publications such as journals or series, rather than individual articles. A journal’s print and online editions may have different ISSNs. Each ISSN is assigned only once, making it a unique identifier for the corresponding serial publication.</p>
+<p>In OSIRIS, journals are stored centrally and can be linked to publications and other research activities, such as peer review and editorial work. This allows institutions to store further information alongside a journal’s name, including its publisher, categories and metrics by year.</p>
+<p>Ideally, journals do not need to be created manually. They can be added through the relevant field when creating an activity. OSIRIS uses the open OpenAlex API to find journals, for example by name. Searching by ISSN is even better, as the unique identifier leads directly to the correct journal. Existing journals are linked, and missing journals are created. The required metadata on publishers, open access and other details also comes directly from OpenAlex.</p>
+<figure class="article-figure"><img alt="Dialog for adding a journal through OpenAlex" loading="lazy" decoding="async" width="1590" height="780" src="/_astro/26-08-19_add-journal-openalex.DXiN-ZlL_1KSvGG.webp" srcset=""><figcaption>Searching for ‘Nucleic Acids’ returns numerous possible matches. If the correct journal is difficult to identify, its ISSN often helps.</figcaption></figure>
+<h2 id="pmid-and-pmcid-key-identifiers-in-medicine-and-the-life-sciences">PMID and PMCID: key identifiers in medicine and the life sciences</h2>
+<p>The <strong>PubMed ID</strong>, or PMID, identifies a record in the PubMed literature database. It is widely used in medicine and the life sciences and is particularly useful for identifying publications unambiguously in these fields.</p>
+<p>A PMID is not the same as a DOI. Many articles have both identifiers, but not every PubMed record has a DOI, and not every publication with a DOI is indexed in PubMed. Both IDs can therefore usefully be stored together.</p>
+<p>OSIRIS can also search PubMed and import its metadata. Users simply enter the PubMed ID in the import field. The import works much like a DOI import, although the metadata quality may be lower for some fields.</p>
+<p>The <strong>PubMed Central ID</strong>, or PMCID, is distinct from the PMID. It points to a freely accessible full text in the PubMed Central archive. A PMID and a PMCID can refer to the same article, but they identify records in different systems and serve different purposes.</p>
+<p>At medical and life sciences institutions in particular, these subject-specific identifiers can significantly improve data quality and provide additional options for importing or matching records.</p>
+<h2 id="preprints-repositories-and-research-data">Preprints, repositories and research data</h2>
+<p>Some disciplines and publication types have their own established identification systems:</p>
+<ul>
+<li><strong>arXiv IDs</strong> are particularly common in physics, mathematics and computer science. They identify preprints and allow their different versions to be tracked.</li>
+<li><strong>Handles</strong> and <strong>URNs</strong> are often used by institutional repositories, libraries and digital collections. They can, for example, provide persistent references to theses.</li>
+<li><strong>Accession numbers</strong> identify records in specialist repositories, such as genome sequences, protein structures, biological samples or geoscientific data.</li>
+<li><strong>Clinical trial IDs</strong> identify registered clinical trials and connect publications to the underlying studies.</li>
+<li><strong>OpenAlex IDs</strong> identify entities in the OpenAlex knowledge graph. In OSIRIS, they are particularly useful for linking and enriching research information.</li>
+</ul>
+<p>Research data and software increasingly receive DOIs too, often through DataCite. This demonstrates that DOIs have long extended beyond conventional articles.</p>
+<h2 id="one-object-can-have-several-identifiers">One object can have several identifiers</h2>
+<p>Several identifiers for the same object can be an advantage. A biomedical article may have a DOI, a PMID, a PMCID and an OpenAlex ID at the same time. Each connects it to a different infrastructure and enables different uses.</p>
+<p>What matters is modelling the identifiers correctly:</p>
+<ul>
+<li>The DOI identifies the published article.</li>
+<li>The PMID identifies the PubMed record.</li>
+<li>The PMCID identifies the full text in PubMed Central.</li>
+<li>The OpenAlex ID identifies the work in the OpenAlex knowledge graph.</li>
+</ul>
+<p>Together, these IDs create a denser network of connections. If one data source becomes unavailable or contains little metadata, another may provide additional information. They also increase the chances of reliably matching records across systems.</p>
+<h2 id="good-identifiers-better-research-information">Good identifiers, better research information</h2>
+<p>Identifiers may seem unremarkable at first glance. In research information management, however, they are an essential part of the data infrastructure. They turn isolated records into a connected information network.</p>
+<p>A few simple principles help in practice:</p>
+<ol>
+<li><strong>Capture identifiers as early as possible.</strong> Including a DOI during import is more useful than adding it manually later.</li>
+<li><strong>Use IDs appropriate to the entity.</strong> An ISSN identifies a journal rather than an article within it. An ISBN identifies a book edition, rather than automatically identifying every chapter.</li>
+<li><strong>Allow several relevant IDs.</strong> DOIs and PMIDs complement each other.</li>
+<li><strong>Check identifiers and obtain them from trusted sources where possible.</strong> An incorrect ID can link records just as reliably to the wrong object as a correct ID can link them to the right one.</li>
+<li><strong>Treat identifiers as more than links.</strong> Their greatest value lies in machine-readable connections and automated data exchange.</li>
+</ol>
+<p>This is why identifiers play such a central role in OSIRIS. DOIs simplify publication imports and prevent duplicates. ORCID connects people unambiguously to their international research profiles. ROR enables organisations to be created centrally using standardised records and high-quality metadata. ISSNs provide unique identifiers for journals, supporting deduplication and straightforward imports. Subject-specific identifiers extend this network wherever DOIs, ORCID iDs and ROR IDs alone are not enough.</p>
+<p>The more research objects have appropriate, verified identifiers, the less people and systems have to guess. This improves individual records and the quality of the research information system as a whole.</p>
+<blockquote>
+<p>Good research information begins with a simple question: do we know exactly what, or whom, we are talking about?</p>
+</blockquote></div><footer class="article-footer" data-astro-cid-tldeq5d5><div class="article-tags" aria-label="Tags" data-astro-cid-tldeq5d5><a href="/en/tags/identifier/" data-astro-cid-tldeq5d5>#Identifier</a><a href="/en/tags/doi/" data-astro-cid-tldeq5d5>#DOI</a><a href="/en/tags/orcid/" data-astro-cid-tldeq5d5>#ORCID</a><a href="/en/tags/ror/" data-astro-cid-tldeq5d5>#ROR</a></div><a class="author-note" href="/en/authors/jkoblitz/" data-astro-cid-tldeq5d5><span class="author-avatar large" aria-hidden="true" data-astro-cid-ccluwrv3><img src="/img/julia.jpeg" alt="" loading="lazy" data-astro-cid-ccluwrv3></span><span data-astro-cid-tldeq5d5><small data-astro-cid-tldeq5d5>Written by</small><strong data-astro-cid-tldeq5d5>Julia Koblitz</strong><span data-astro-cid-tldeq5d5>Develops OSIRIS and writes about open research information, product design, and the ideas behind the system.</span></span><b aria-hidden="true" data-astro-cid-tldeq5d5>→</b></a></footer></div></article></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><p class="footer-brand" data-astro-cid-jo6i4kqk>Open · Smart · Intuitive</p><p data-astro-cid-jo6i4kqk>News from the open OSIRIS ecosystem.</p></div><nav aria-label="Footer navigation" data-astro-cid-jo6i4kqk><a href="https://osiris-app.de" data-astro-cid-jo6i4kqk>OSIRIS</a><a href="https://osiris-solutions.de" data-astro-cid-jo6i4kqk>Solutions</a><a href="https://osiris-portfolio.de" data-astro-cid-jo6i4kqk>Portfolio</a><a href="https://wiki.osiris-app.de" data-astro-cid-jo6i4kqk>Wiki</a><a href="https://github.com/OSIRIS-Solutions" data-astro-cid-jo6i4kqk>GitHub</a><!-- <a href={rssPath(language)}>RSS</a> --><a href="/en/imprint/" data-astro-cid-jo6i4kqk>Imprint</a></nav><p class="copyright" data-astro-cid-jo6i4kqk>© 2026 OSIRIS Solutions GmbH</p></footer></body></html>
